@@ -1,6 +1,10 @@
 FROM yanivomc/alpine-oraclejdk8:slim
+WORKDIR /app
+COPY ./spring-music.jar ./code/spring-music.jar
 ENV DBHOST=MYSQL
 ENV DBURL=mydb.com
-COPY spring-music.jar /code
-CMD ["java -jar -Dspring.profiles.active=none", "spring-music.jar"]
-EXPOSE 8081:8080
+EXPOSE 8081
+EXPOSE 8080
+EXPOSE 9090
+WORKDIR /app/code
+CMD java -jar -Dspring.profiles.active=none spring-music.jar
