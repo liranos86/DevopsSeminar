@@ -1,0 +1,5 @@
+  143  docker run -d --name db_mysql --network dblan -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=music yanivomc/spring-mysql:latest
+  159  docker run -itd -p 8081:8080  --network dblan testspring:1
+  160  docker ps -a
+  161  docker run -itd -p 8082:8080  --network dblan testspring:1
+  162  docker ps -a
