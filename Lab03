@@ -37,5 +37,7 @@ services:
 
 
 networks:
-  dblayer:
-  app_layer:
+ dblan:
+  driver: bridge
+ applan:
+  driver: bridge
