@@ -3,10 +3,6 @@ services:
   web:
     build: ./spring-app/
     image: yanivomc/spring-music:8
-    restart: always
-    volumes:
-       - ./volume:/storage
-       - ./volume/thisismyfile:/stam/anotherlinktofile
     ports:
       - 8080:8080
       - 8090:8080
@@ -22,22 +18,4 @@ services:
     ports:
       - 80:80
 
-  db_mysql:
-    image: wangxian/alpine-mysql
-    volumes:
-      - ./storagedb:/app
-    environment: # env variables
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_DATABASE=music
-    ports:
-      - 3302:3306
-    networks:
-      - dblayer
 
-
-
-networks:
- dblan:
-  driver: bridge
- applan:
-  driver: bridge
